@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+    <!-- Общие метатеги: кодировка (charset) -->
+    <meta charset="utf-8">
+    <!--
+        Далее задаются метатеги с атрибутом property. Значение атрибута начинается с "og:". 
+        Это метатеги для социальных сетей. Они передают соцсетям 
+        и мессенджерам основную информацию о сайте. Эта информация отображается,
+        например, в сообщении в мессенджере, когда вы отправляете ссылку
+        на сайт. Или на странице в соцсети, когда делитесь ссылкой.
+        Подробнее см на https://ogp.me/.
+    -->
+    <!-- Метатег, который указывает на основной язык страницы -->
+    <meta property="og:locale" content="ru_RU" />
+    <!-- Метатеги, которые указывают на тип страницы -->
+    <meta property="og:type" content="website" />
+    <!-- Метатеги и тег title, которые указывают на название страницы -->
+    <title>Портфолио</title>
+    <meta property="og:title" content="Портфолио (пример)" />
+    <!-- Метатеги, которые указывают на описание страницы -->
+    <meta name="description" content="Описание сайта отображаемое в превью ссылок" />
+    <meta property="og:description" content="Описание сайта отображаемое в превью ссылок" />
+    <!-- Метатег, который указывает ключевые слова страницы -->
+    <meta name="keywords" content="портфолио, веб-разработчик, веб-дизайнер, сайты" />
+    <!-- Метатеги, которые указывают на превью-изображение для страницы -->
+    <meta property="og:image" content="https://example.com/assets/img/preview.png" />
+    <meta property="og:image:alt" content="Описание изображения" />
+    <!-- Метатеги, которые указывают на ссылку на страницу и ее каноническую ссылку -->
+    <meta property="og:url" content="https://example.com/" />
+    <link rel="canonical" href="https://example.com/" />
+
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <!-- 
+            Перечисляем навигационные ссылки с помощью ненумерованного списка.
+            Чтобы перемещаться по разделам одностраничного сайта,
+            используем перемещение к элементу по id. В СSS-файле 
+            задаем плавное перемещение, с помощью  smooth (см. CSS-файл).
+        -->
+        <ul>
+            <li><a class="nav-button color-black" href="#main">Главная</a></li>
+            <li><a class="nav-button color-black" href="#about">Обо мне</a></li>
+            <li><a class="nav-button color-black" href="skills">Навыки и стэк</a></li>
+            <li><a class="nav-button color-black" href="project">Проекты</a></li>
+        </ul>
+        <!-- 
+            Создаем контейнер для кнопки, чтобы была возможность 
+            ее отцентровать в оставшемся пространстве справа от основного списка ссылок.
+        -->
+        <div class="contact-button-container">
+            <a class="contact-button color-orange" href="#form">
+                <!--
+                    Здесь и далее элемент span используем, чтобы стилизовать 
+                    или организовать текстовые элементы.
+                    Его основное отличие от элементов <h1>-<h>6, <p> и подобных 
+                    в том, что он по умолчанию отображается в режиме inline
+                    (в одну строку с остальным текстом), а не block.
+                -->
+                <span class="contact-button-text">Связаться со мной</span>
+            </a>
+        </div>
+    </nav>
+    <!-- 
+        Создаем контейнер для основного контента сайта.
+        Используем семантический тег <main>.
+    -->
+    <main>
+        <section id="main" class="container">
+            <h1 class="big-header color-black">
+                Имя Фамилия
+            </h1>
+            <p class="main-desc desc-font color-black">
+                Короткая фраза про автора портфолио с самой важной информацией.
+                Например: «Разрабатываю сайты-визитки и рекламные лендинги»
+            </p>
+            <img class="main-image" src="assets/images/Главный экран.png"
+                alt="Абстрактное изображение компьютерного монитора">
+        </section>
+        <section id="about" class="container">
+            <div class="about-details background-turquoise">
+                <h1 class="big-header color-black">
+                    Привет, я веб-разработчик
+                </h1>
+                <p class="about-desc desc-font color-black">
+                    Описание автора портфолио. Более подробный текст про вас, что вы делаете, какими проектами
+                    занимаетесь, какой у
+                    вас опыт в профессии.
+                </p>
+            </div>
+            <figure class="about-photo">
+                <img src="assets/images/photo.png" alt="Фото автора портфолио">
+            </figure>
+        </section>
+
+        <section id="skills" class="container">
+            <h1 class="big-header color-black">
+                Навыки и стек технологий
+            </h1>
+            <!--
+                Создаем контейнер, который содержит в себе
+                все три колонки таблицы с навыками.
+             -->
+            <div class="skills-table">
+                <!-- 
+                    Создаем Класс "skills-card" для одной колонки,
+                    чтобы настроить стиль отображения отдельной колонки в разделе. 
+                -->
+                <div class="skills-card">
+                    <!--
+                            Создаем класс "skills-card-section" внутри "skills-card".
+                            Он нужен для корректной работы grid. 
+                            А также с помощью этого класса настроим в стилях 
+                            выравнивание оранжевых заголовков на одном уровне. 
+                        -->
+                    <section class="skills-card-section">
+                        <img class="skills-card-icon" src="assets/icons/Development.svg" alt="Иконка програмный код">
+                        <h2 class="skills-card-header color-black">
+                            Разработка сайтов
+                        </h2>
+                        <p class="skills-card-text color-black">
+                            Короткое общее описание навыков в разработке:
+                            фронтенд, бэкенд, базы данных, DevOps.
+                        </p>
+                    </section>
+
+                    <section class="skills-card-section">
+                        <h3 class="skills-card-subheader color-orange">
+                            Языки
+                        </h3>
+
+                        <!--
+                                Для оформления текста с навыками и пр. используем 
+                                ненумерованный список. С его помощью легче настроить
+                                корректное отображение текста. 
+                                Также можно использовать <p> с <br/>, который разделяет строки.
+                            -->
+                        <ul class="skills-card-list color-black">
+                            <li>HTML, CSS...</li>
+                            <li>будет добывляться</li>
+                        </ul>
+                        <h3 class="skills-card-subheader color-orange">
+                            Инструменты
+                        </h3>
+                        <ul class="skills-card-list color-black">
+                            <li>VS Code</li>
+                            <li>Github</li>
+                            <li>Git</li>
+                            <li>Дополните список</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="skills-card">
+                    <section class="skills-card-section">
+                        <img class="skills-card-icon" src="assets/icons/Design.svg"
+                            alt="Иконка кисть на фоне компьютера">
+                        <h2 class="skills-card-header color-black">
+                            Дизайн
+                        </h2>
+                        <p class="skills-card-text color-black">
+                            Короткое общее описание навыков дизайна.
+                        </p>
+                    </section>
+                    <section class="skills-card-section ">
+                        <h3 class="skills-card-subheader color-orange">
+                            Инструменты
+                        </h3>
+                        <ul class="skills-card-list color-black">
+                            <li>Figma</li>
+                            <li>Дополнить список</li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="skills-card">
+                    <section class="skills-card-section">
+                        <img class="skills-card-icon" src="assets/icons/SoftSkills.svg" alt="Иконка коммуникации">
+                        <h2 class="skills-card-header color-black">
+                            Soft Skills
+                        </h2>
+                        <p class="skills-card-text color-black">
+                            Короткое общее описание софт скиллов.
+                            Умение работать в команде и пр.
+                        </p>
+                    </section>
+                    <section class="skills-card-section">
+                        <h3 class="skills-card-subheader color-orange">
+                            Навыки
+                        </h3>
+                        <ul class="skills-card-list color-black">
+                            <li>Навык</li>
+                            <li>Навык</li>
+                            <li>Навык</li>
+                            <li>Навык</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section id="project" class="container">
+            <h1 class="big-header color-black">
+                Проекты
+            </h1>
+            <!-- 
+                Создаем контейнер для карточек проектов.
+                Помещаем в него 6 карточек, как в макете. 
+                Отображение в контейнере настроим так,
+                что карточек можно разместить больше или
+                меньше, и это не нарушит внешний вид (см. CSS-файл).
+            -->
+            <div class="project-display">
+                <!-- 
+                    Создаем карточку проекта с помощью элемента <figure>.
+                    Оборачиваем его в ссылку <a>, т.к. скриншот должен 
+                    содержать в себе ссылку на сайт. 
+                    Также можно сделать наоборот: в элемент <a>
+                    завернуть <figure>.
+                -->
+                <figure class="project-card">
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                    <a href="https://example.com">
+                        <img src="assets/images/pet_proj.png" alt="Скриншот проекта">
+                    </a>
+                </figure>
+            </div>
+            <a class="projects-button color-orange" href="https://github.com/ilya234178">
+                <span class="project-button-text"> Посмотреть на Github</span>
+            </a>
+        </section>
+
+        <section id="form" class="container">
+            <div class="form-details container background-turquoise">
+                <h1 class="big-header color-black">
+                    Хотите заказать сайт?
+                </h1>
+                <p class="form-detail-text desc-font color-black">
+                    Напишите мне, чтобы обсудить детали.
+                </p>
+            </div>
+            <!-- 
+                Создаем контейнер для формы и иллюстрации к ней. 
+                Кнтейнер нужен для того, чтобы настроить позиционирование
+                и правильно расположить элементы вместе.
+            -->
+            <div id="contact-form" class="form-container">
+                <img class="form-pic" src="assets/images/Форма.png"
+                    alt="Абстрактное изображение компьютера и рук печатающих на клавиатуре">
+                <form class="form">
+                    <!--
+                        Оборачиваем все элементы формы в <fieldset>.
+                        Это семантический тег, который группирует несколько
+                        полей ввода в форме. 
+                        Помните, что у <fieldset> обычно есть стили по умолчанию. 
+                        Чтобы форма отображалась корректно, отключите их (см. CSS-файл).
+                    -->
+                    <fieldset class="form-sender-data">
+                        <!--
+                            Поле ввода оборачиваем в <label>. Это нужно для того,
+                            чтобы корректно настроить отображение подписи над полем ввода. 
+                            Можно также исопользовать <div> вместо <label> и <label> вместо <span>.
+                            Но в технической спецификации элемента <label> предусмотрено его использование в качестве
+                            контейнера для поля ввода с подписью.
+                        -->
+                        <label class="form-field" for="name">
+                            <span class="form-label color-black">Имя</span>
+                            <!-- 
+                                Задаем только два класса элементам <input> и <textarea>:
+                                form-input и color-black.
+                                Остальные стили настраиваем через комбинатор класса родительского <fieldset> 
+                                с элементом поля ввода. 
+                                Таким образом количество классов на элементе 
+                                не слишком большое, что выглядит элегантнее и улучшает читаемость кода.
+                            -->
+                            <input class="form-input color-black" type="text" name="name">
+                        </label>
+                        <label class="form-field" for="email">
+                            <span class="form-label color-black">E-mail</span>
+                            <input class="form-input color-black" type="text" name="email">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="form-text-body">
+                        <label class="form-field" for="body">
+                            <span class="form-label color-black">Расскажите про свою задачу</span>
+                            <textarea class="form-input color-black" name="body"></textarea>
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="form-submit">
+                        <!-- 
+                            Для кнопки в форме используем <button>.
+                            Можно также использовать тег input type="submit". 
+                            Разницы почти нет, кроме презаданных стилей
+                            некоторых браузеров. 
+                            Поскольку на этой странице уже используется элемент button,
+                            и для него уже заданы общие стили (отключены 
+                            браузерные стили и задан курсор), то проще
+                            использовать его же и здесь.
+                        -->
+                        <button class="form-button color-orange" type="button">
+                            <span class="form-button-text">Отправить</span>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <section id="reviews" class="container">
+            <h1 class="big-header color-black">
+                Отзывы
+            </h1>
+            <p class="reviews-desc desc-font color-black">
+                Люди, с которыми я работал(а), остаются довольны результатом.
+            </p>
+            <!-- 
+                Создаем контейнер для картинки через <figure>. 
+                Здесь нужен именно этот тег, так как к изображению нужно добавить подпись. 
+                Логичнее всего добавить подпись через <figcaption>, который 
+                должен быть внутри <figure>.  
+                <figcaption> — специальный тег, который используется как контейнер 
+                для подписи к изображениям. 
+                Контейнер для картинки нужен также для того, чтобы задать размеры
+                и рамку изображению.
+            -->
+            <figure class="reviews-card">
+                <div class="reviews-photo">
+                    <img src="assets/images/photo.png" alt="Фото автора отзыва">
+                </div>
+                <!-- 
+                        Создаем элемент с текстом отзыва и именем автора отзыва.
+                        Добавляем их через <p>, так как они располагаются
+                        друг под другом. Нет необходимости в inline отображении элементов.
+                    -->
+                <figcaption class="reviews-caption">
+                    <p class="rewiews-text color-black">"текст отзыва"</p>
+                    <p class="rewiews-info color-black">Имя Фамилия</p>
+                    <p class="rewiews-info color-black">Компания,город</p>
+                </figcaption>
+            </figure>
+            <!-- 
+                    Создаем переключатель для отзывов через <button>. 
+                    Пока это просто кнопка, которая ничего не делает. 
+                    Можно задать его с помощью любого элемента
+                    и в CSS настроить нужный вид курсора. 
+                    onclick работает на любом теге.
+                -->
+            <div class="reviews-toggle">
+                <button class="reviews-toggle-button" type="button">
+                    <!-- 
+                            Добавляем иконки для кнопок. 
+                            Добавляем сразу два элемента img — с одинаковыми иконками,
+                            но с разной заливкой. Это нужно для того, чтобы менять кнопку по hover. 
+                            У них заданы одинаковые стили, поэтому при смене отображения 
+                            с одной на другую никаких сдвигов происходить не будет. 
+                            Второй иконке добавляем дополнительный класс, который
+                            в отсутствие hover выключает ее отображение на странице. 
+                            А при наведении, наоборот, включает. (см. CSS-файл).
+                        -->
+                    <img class="reviews-toggle-arrow" src="assets/icons/Arrow-L.svg" alt="Стрелка влево">
+                    <img class="reviews-toggle-arrow icon-hover" src="assets/icons/Arrow-L-white.svg"
+                        alt="Стрелка влево">
+                </button>
+
+                <button class="reviews-toggle-button" type="button">
+                    <img class="reviews-toggle-arrow" src="assets/icons/Arrow-R.svg" alt="Стрелка вправо">
+                    <img class=" reviews-toggle-arrow icon-hover" src="assets/icons/Arrow-R-white.svg"
+                        alt="Стрелка вправо">
+                </button>
+            </div>
+        </section>
+    </main>
+    <!--
+        Секция «Договоримся о сотрудничестве» не имеет прямого отношения
+        к основному контенту на сайте.
+        Поэтому выносим ее из <main> и добавляем через <aside>.
+        Задаем ему тот же класс container для стилизации.
+    -->
+    <aside id="letstalk" class="container">
+        <!-- 
+            Создаем контейнер для секции, чтобы в стилях оформить его
+            как фиолетовый прямоугольник со скругленными углами.
+            Создаем также контейнер для кнопки. 
+            Он нужен для того, чтобы отцентровать ее вертикально. 
+            Подробнее об отображении в данном контейнере см. в CSS-файле.
+        -->
+        <div class="letstalk-box">
+            <h2 class="letstalk-header">
+                Договоримся о сотрудничестве
+            </h2>
+            <p class="letstalk-text">
+                У вас есть идея проекта или предложение о работе?
+                Напишите мне. Я открыт к разным вариантам
+                сотрудничества.
+            </p>
+            <div class="letstalk-button-container">
+                <a class="letstalk-button" href="#form">
+                    <span class="letstalk-button-text">Связаться с разработчиком</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <div class="footer-socials">
+            <!--
+                    Для иконок соцсетей также добавляем ве картинки сразу.
+                    Одна из них скрыта и используется для эффекта hover (подробнее см. выше). 
+                    Добавляем класс icon-hover, такой же, как и в случае выше.
+                    Но поскольку в CSS-файле он используется только в комбинации с классом и селектором
+                    hover на родительском элементе <button>, общих стилей у иконок 
+                    соцсетей и кнопок-стрелок в отзывах нет.
+                -->
+            <a class="footer-social-container" href="https://t.me/example">
+                <img class="footer-social-icon" src="assets/icons/TG.svg" />
+                <img class="footer-social-icon icon-hover" src="assets/icons/TG-white.svg" />
+            </a>
+            <a class="footer-social-container" href="https://habr.com/ru/users/example">
+                <img class="footer-social-icon" src="assets/icons/Habr.svg" />
+                <img class="footer-social-icon icon-hover" src="assets/icons/Habr-white.svg" />
+            </a>
+
+            <!-- 
+                    Добавляем ссылку на адрес электронной почты.
+                    Вместо http в href используем протокол mailto, который открывает 
+                    почтовый клиент по умолчанию на устройстве пользователя. 
+                    Например, Outlook на Windows или приложение «Почта» на iOS.
+                -->
+            <a class="footer-social-container" href="mailto:someone@example.com">
+                <img class="footer-social-icon" src="assets/icons/Email.svg" />
+                <img class="footer-social-icon icon-hover" src="assets/icons/Email-white.svg" />
+            </a>
+        </div>
+
+        <!-- 
+                Задаем элемент параграф <p> для ссылок на графические материалы.
+                В стилях на footer-links задан flexbox, поэтому в тегах <br /> нет необходимости
+                Также, поскольку <p> может стилизовать весь текст внутри себя, на тегах <a>
+                не указываем никакой класс. Это упрощает расширение и изменение
+                списка ссылок в футере страницы. 
+            -->
+        <p class="footer-links color-black">
+            Изображения и иконки:
+            <a
+                href="https://ru.freepik.com/free-vector/software-integration-concept-illustration_18352184.htm#page=2&query=веб-разработка&position=7&from_view=search&track=sph">
+                Изображение-1 от Storyset на Freepik.
+            </a>
+            <a
+                href="https://ru.freepik.com/free-vector/code-typing-concept-illustration_10259340.htm#&position=12&from_view=author">
+                Изображение-2 от Storyset на Freepik.
+            </a>
+            <a href="https://www.flaticon.com/ru/free-icons/html" title="html иконки">
+                Иконка "Html" oT Frey Wazza a Flaticon.
+            </a>
+            <a href="https://www.flaticon.com/ru/free-icons/" title="телеграмма иконки">
+                Иконка «Телеграм» от Freepik на Flaticon.
+            </a>
+            <a href="https: //www.flaticon.com/ru/free-icons/" title="общение иконки">
+                Иконка «Общение» от Ilham Fitrotul Hayat на Flaticon.
+            </a>
+            <a href="https://www.flaticon.com/ru/free-icons/-" title="Дизайн сайта иконки">
+                Иконка «Дизайн сайта» от Freepik на Flaticon.
+            </a>
+            <a href="https://www.flaticon.com/ru/free-icons/-" title=" Эл. адрес иконки">
+                Иконка «Эл. адрес» от Those Icons a Flaticon.
+            </a>
+        </p>
+    </footer>
+</body>
+
+</html>
